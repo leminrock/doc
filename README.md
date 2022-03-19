@@ -1,3 +1,5 @@
+# LEM (Linux Embedded Music)
+
 Appunti sparsi di configurazione della scheda Rock Pi S per musicisti.  
 La scheda [Rock Pi S](https://wiki.radxa.com/RockpiS), la più piccola della famiglia [Rock](https://wiki.radxa.com/Home), è provvista di un'uscita stereofonica e di 8 entrate microfoniche nella v1.1, 6 nella v1.2 e 4 nella v1.3.  
 La ragione di quest'equipaggiamento risiede nel fatto che la scheda è stata concepita per applicazioni IoT con riconoscimento vocale.
@@ -449,7 +451,7 @@ usare il programma `hciconfig` per configurare il bluetooth
 Verificare la presenza del dispositivo:
 
 ```bash
-$ hciconfig -a
+hciconfig -a
 ```
 
 La risposta sarà qualcosa del genere:
@@ -590,8 +592,8 @@ net.ipv4.ip_forward=1
 Eseguire:
 
 ```bash
-$ sudo iptables -t nat -A  POSTROUTING -o eth0 -j MASQUERADE
-$ sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
+sudo iptables -t nat -A  POSTROUTING -o eth0 -j MASQUERADE
+sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
 ```
 
 In `/etc/rc.local` aggiungere la seguente linea prima di `exit 0`:
@@ -616,14 +618,14 @@ Riavviare
 Ora si dovrebbe _vedere_ la rete creata nella rock. Se dovessero esserci problemi di disconnessione dopo qualche minuto si può provare a disabilitare un eventuale servizio `wpa_supplicant` attivo con:
 
 ```bash
-$ ps aux | grep wpa_supplicant
-$ kill -9 <pid>
+ps aux | grep wpa_supplicant
+kill -9 <pid>
 ```
 
 Una volta configurato l'`access point`, si può attivare o disattivare con il comando:
 
 ```bash
-$ sudo service hostapd {start|stop}
+sudo service hostapd {start|stop}
 ```
 
 ---
@@ -640,7 +642,7 @@ sudo systemctl disable hostapd
 
 ## Abilitare permanentemente il il servizio `hostapd` (access point)
 
-Per abilitare il servizio:
+Per abilitare il servizio all'avvio:
 
 ```bash
 sudo systemctl enable hostapd
@@ -652,7 +654,6 @@ Per avviarlo:
 sudo systemctl start hostapd
 ```
 
-**N.B. Per abilitare il servizio è necessario riavviare il sistema**
 
 ### Aggiornamento attivazione access point (2020-12-17)
 

@@ -3,7 +3,7 @@
 Appunti sparsi di configurazione della scheda Rock Pi S per musicisti.  
 La scheda [Rock Pi S](https://wiki.radxa.com/RockpiS), la più piccola della famiglia [Rock](https://wiki.radxa.com/Home), è provvista di un'uscita stereofonica e di 8 entrate microfoniche nella v1.1, 6 nella v1.2 e 4 nella v1.3.  
 La ragione di quest'equipaggiamento risiede nel fatto che la scheda è stata concepita per applicazioni IoT con riconoscimento vocale.
-A differenza delle altre schede simil-Raspberry, che nella migliore delle ipotesi hanno un'uscita stereo integrata (a volte di pessima qualità) e un'entrata di linea (o microfonica), la rockpis, in virtù della sua dotazione hardware, si presta ad applicazioni musicali avanzate.  
+A differenza delle altre schede *Raspberry-like*, che nella migliore delle ipotesi hanno un'uscita stereofonica integrata (a volte di pessima qualità) e un'entrata di linea (o microfonica), la *rockpis*, in virtù della sua dotazione hardware, si presta ad applicazioni musicali avanzate.  
 La scheda si presenta in varie configurazioni hardware, ma per questo progetto è stata testata una scheda v1.1 con 512 MB di ram, WiFi e Bluetooth integrati. Il sistema operativo montato su una SD card da 8 giga è Debian Buster, [fornito dal produttore](https://wiki.radxa.com/RockpiS/downloads) e regolarmente aggiornato.
 
 ---
@@ -11,34 +11,34 @@ La scheda si presenta in varie configurazioni hardware, ma per questo progetto �
 ---
 
 1. [Pinout audio](#pinout-audio)
-1. [Collegarsi a `rockpis` tramite `ssh`](#collegarsi-a-rockpis-via-ssh-tramite-connessione-ethernet)
+2. [Collegarsi a `rockpis` tramite `ssh`](#collegarsi-a-rockpis-via-ssh-tramite-connessione-ethernet)
 
     - [Collegarsi a rockpis con Debian](#ssh-su-debian)
     - [Collegarsi a rockpis con Mac OS X](#ssh-su-mac-os-x)
 
-1. [Aggiornare il sistema e installare il software per l'audio](#preparare-il-sistema)
-1. [Configurazione del wifi](#configurazione-del-wifi)
-1. [Installare e avviare `puredata`](#installare-e-avviare-puredata)
-1. [Avviare `puredata` al boot di rockpis](avviare-puredata-al-boot-di-rockpis)
-1. [setup di `jack`](#setup-di-jack)
-1. [`jack` in realtime priority](#jack-in-realtime-priority)
-1. [Installazione di `supercollider`](#installazione-di-supercollider)
-1. [Uso di un display virtuale con `xvfb`](#uso-di-un-display-virtuale-con-xvfb)
+3. [Aggiornare il sistema e installare il software per l'audio](#preparare-il-sistema)
+4. [Configurazione del wifi](#configurazione-del-wifi)
+5. [Installare e avviare `puredata`](#installare-e-avviare-puredata)
+6. [Avviare `puredata` al boot di rockpis](#avviare-puredata-al-boot-di-rockpis)
+7. [setup di `jack`](#setup-di-jack)
+8. [`jack` in realtime priority](#jack-in-realtime-priority)
+9. [Installazione di `supercollider`](#installazione-di-supercollider)
+10. [Uso di un display virtuale con `xvfb`](#uso-di-un-display-virtuale-con-xvfb)
 
     - [Installazione di `xvfb`](#installazione-di-xvfb)
     - [avvio e test di sclang con `xvfb`](#avvio-e-test-di-sclang-con-xvfb)
 
-1. [Esecuzione di uno script sc](#esecuzione-di-uno-script-sc)
-1. [GPIO](#gpio)
+11. [Esecuzione di uno script sc](#esecuzione-di-uno-script-sc)
+12. [GPIO](#gpio)
 
     - [la libreria `mraa`](#la-libreria-mraa)
     - [programmazione del gpio](#programmazione-del-gpio)
 
-1. [Opzione `python`](#opzione-python)
-1. [Installare `nodejs`](#installare-nodejs)
-1. [Configurare il `bluetooth`](#configurare-il-bluetooth)
-1. [Access Point](#access-point)
-1. [Led wifi](#led-wifi)
+13. [Opzione `python`](#opzione-python)
+14. [Installare `nodejs`](#installare-nodejs)
+15. [Configurare il `bluetooth`](#configurare-il-bluetooth)
+16. [Access Point](#access-point)
+17. [Led wifi](#led-wifi)
 
 ---
 
@@ -350,7 +350,7 @@ s.quit
 0.quit
 ```
 
-#### esecuzione di uno script sc
+### Esecuzione di uno script sc
 
 Per eseguire uno script sc è succifiente eseguire il seguente comando:
 

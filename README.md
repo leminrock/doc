@@ -622,6 +622,12 @@ ps aux | grep wpa_supplicant
 kill -9 <pid>
 ```
 
+oppure
+
+```bash
+sudo kill -9 $(pidof wpa_supplicant)
+```
+
 Una volta configurato l'`access point`, si può attivare o disattivare con il comando:
 
 ```bash

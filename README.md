@@ -16,6 +16,7 @@ La scheda si presenta in varie configurazioni hardware, ma per questo progetto Ã
     - [Collegarsi a rockpis con Debian](#ssh-su-debian)
     - [Collegarsi a rockpis con Mac OS X](#ssh-su-mac-os-x)
 
+3. [Creare una partizione di swap](#creare-una-partizione-di-swap)
 3. [Aggiornare il sistema e installare il software per l'audio](#preparare-il-sistema)
 4. [Configurazione del wifi](#configurazione-del-wifi)
 5. [Installare e avviare `puredata`](#installare-e-avviare-puredata)
@@ -145,6 +146,32 @@ ssh rock@rockpis
 ```
 
 4\. inserire la password (`rock`)
+
+---
+
+## Creare una partizione di swap
+
+```bash
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile 
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo swapon --show 
+```
+
+verifica che la partizione di swap sia stata creata:
+
+```bash
+free -h
+```
+
+aggiungere la seguente line al file `/etc/fstab` (da scrivere con i privilegi di root):
+
+```
+/swapfile   none    swap    sw      0       0
+```
+
+riavviare il sistema.
 
 ---
 
